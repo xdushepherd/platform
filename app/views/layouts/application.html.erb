@@ -15,6 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <%= link_to "陕西省大型科研仪器共享平台",root_path,{class: "navbar-brand"} %>
         </div>
@@ -24,6 +25,10 @@
             <li><%= link_to "会员管理",admin_users_path %></li>
             <li><%= link_to "专家管理",expert_users_path %></li>
           </ul>
+          <ul class="nav navbar-nav pull-right">
+            <span><%= link_to "注册",expert_users_path,{class: "btn btn-default",style: "margin-top: 10px;"}%></span>
+            <span><%= link_to "登陆",expert_users_path,{class: "btn btn-default",style: "margin-top: 10px;"}%></span>
+          </ul>          
         </div><!--/.nav-collapse -->
       </div>
     </div>
