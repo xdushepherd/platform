@@ -1,10 +1,19 @@
 class InstrumentsController < ApplicationController
-  before_action :set_instrument, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_instrument, only: [:show, :edit, :update, :destroy]
+  layout  "admin",only: [:admin]
+  
   # GET /instruments
   # GET /instruments.json
+  
+  def admin
+    @q = Instrument.search(params[:q])
+    @instruments = @q.result(distinct: true)    
+  end
+
   def index
-    @instruments = Instrument.all
+    @q = Instrument.search(params[:q])
+    @instruments = @q.result(distinct: true)
   end
 
   # GET /instruments/1

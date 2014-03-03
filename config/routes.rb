@@ -1,11 +1,20 @@
 Platform::Application.routes.draw do
-  resources :instruments
+
+
+  resources :users do
+    collection do 
+       get 'admin'
+       get 'expert'
+    end
+  end
+
+  resources :instruments do
+    collection do
+         get 'admin'
+    end
+  end
 
   get "welcome/index"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'welcome#index'
 
   # Example of regular route:

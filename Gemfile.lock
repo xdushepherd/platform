@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: 155dca814b4f09af4eb3715c8402522c32ab3daa
+  branch: rails-4
+  specs:
+    ransack (1.1.0)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      i18n
+      polyamorous (~> 0.6.0)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -55,6 +67,8 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -120,6 +134,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.2)
+  ransack!
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
