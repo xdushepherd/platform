@@ -1,6 +1,12 @@
 Platform::Application.routes.draw do
 
 
+  resources :reservations do  
+    collection do
+       get 'admin'
+    end
+  end
+
   resources :users do
     collection do 
        get 'admin'
