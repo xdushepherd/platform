@@ -11,6 +11,7 @@ Platform::Application.routes.draw do
     collection do 
        get 'admin'
        get 'expert'
+       get 'experts'
     end
   end
 

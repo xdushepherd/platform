@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305111148) do
+ActiveRecord::Schema.define(version: 20140306104640) do
 
   create_table "instruments", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unit_belongs_to"
+    t.datetime "date_producted"
+    t.datetime "date_purchased"
+    t.string   "brand"
+    t.string   "type_belongs_to"
+    t.integer  "price_once"
   end
 
   create_table "reservations", force: true do |t|
@@ -35,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140305111148) do
     t.datetime "updated_at"
     t.string   "email"
     t.string   "unit_belongs_to"
+    t.integer  "expert",          default: 0
   end
 
 end

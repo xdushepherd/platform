@@ -9,8 +9,13 @@ class UsersController < ApplicationController
   end
 
   def expert
-    @q = User.search(params[:q])
-    @users = @q.result(distinct: true)  
+    @q = User.experts.search(params[:q])
+    @experts = @q.result(distinct: true) 
+  end
+
+  def experts
+    @q = User.experts.search(params[:q])
+    @experts = @q.result(distinct: true) 
   end
   # GET /users
   # GET /users.json

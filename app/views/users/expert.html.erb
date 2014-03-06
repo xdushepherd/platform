@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @experts.each do |user| %>
       <tr>
         <td class="text-center"><%= user.name %></td>
         <td class="text-center"><%= user.id %></td>
@@ -25,7 +25,6 @@
 </table>
 </div>
 <div class="col-xs-6 col-md-4" style="margin-top: 100px;">
-              <%= link_to '添加专家', new_user_path,class: "btn btn-success col-sm-offset-4"%>
               <h3>筛选专家</h3>
               <%= search_form_for @q,class: "form-horizontal" do |f| %>
                  <fieldset>
@@ -36,7 +35,7 @@
                     </div>
                  </div>   
                  <div class="form-group">
-                    <%= f.label "专业",{ class: "control-label col-md-3" } %>
+                    <%= f.label "专家技能",{ class: "control-label col-md-3" } %>
                     <div class="col-md-8">
                       <%= f.text_field :name_cont,{ class: "form-control" } %>
                     </div>

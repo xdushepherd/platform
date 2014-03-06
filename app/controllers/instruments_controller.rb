@@ -1,5 +1,4 @@
 class InstrumentsController < ApplicationController
-
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
   layout  "admin",only: [:admin]
   
@@ -78,6 +77,8 @@ class InstrumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instrument_params
-      params.require(:instrument).permit(:name, :description)
+      params.require(:instrument).permit(:name, :description,:date_producted,
+                                         :date_purchased,:brand,:unit_belongs_to,
+                                         :type_belongs_to,:price_once)
     end
 end

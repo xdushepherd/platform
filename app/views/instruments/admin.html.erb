@@ -27,7 +27,7 @@
 <div class="col-xs-6 col-md-4" style="margin-top: 100px;">
               <%= link_to '添加仪器', new_instrument_path,class: "btn btn-success col-sm-offset-4"%>
               <h3>筛选仪器</h3>
-              <%= search_form_for @q,class: "form-horizontal" do |f| %>
+              <%= search_form_for @q,url: admin_instruments_path ,class: "form-horizontal" do |f| %>
                  <fieldset>
                  <div class="form-group">
                     <%= f.label "仪器名称",{ class: "control-label col-md-3" } %>
@@ -49,7 +49,7 @@
                  </div>   
                  <div class="form-group">
                   <div class="col-sm-offset-6 col-sm-10" style="margin-top: 30px;">
-                    <%= f.submit "查询",{type: "button",class: "btn btn-primary"} %>
+                    <%= f.submit "查询",{class: "btn btn-primary"} %>
                   </div>  
                  </div>
                  </fieldset>   

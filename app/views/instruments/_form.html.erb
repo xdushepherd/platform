@@ -1,4 +1,5 @@
-<%= form_for(@instrument) do |f| %>
+<div class="col-md-10 col-sm-offset-1">
+ <%= form_for(@instrument,class: "form-horizontal") do |f| %>
   <% if @instrument.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
@@ -10,16 +11,59 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <legend>新增仪器</legend>
+  <div class="form-group">
+    <%= f.label :name,"仪器名称",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :name,class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <div class="form-group">
+    <%= f.label :brand,"仪器平牌",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :brand,class: "form-control"  %>
+    </div>  
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :date_purchased,"购买日期",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :date_purchased,class: "form-control"  %>
+    </div>  
   </div>
-<% end %>
+  <div class="form-group">
+    <%= f.label :date_producted,"生产日期",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :date_producted,class: "form-control"  %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :type_belongs_to,"仪器用途",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :type_belongs_to,class: "form-control"  %>
+    </div>  
+  </div>
+    <div class="form-group">
+    <%= f.label :unit_belongs_to,"所属单位",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :unit_belongs_to,class: "form-control"  %>
+    </div>  
+  </div>
+    <div class="form-group">
+    <%= f.label :price_once,"单价",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :price_once,class: "form-control"  %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :description,"详情",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_area :description,class: "form-control"  %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-10" style="margin-top:60px;">
+      <%= f.submit "确认",{class: "btn btn-primary",style: "width: 250px"} %>
+    </div>  
+  </div>
+ <% end %>
+</div> 
