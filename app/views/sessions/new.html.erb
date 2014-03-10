@@ -1,0 +1,25 @@
+<div class="col-md-4 col-md-offset-4" style="margin-top: 80px;padding:13px;background-color:#31708f">
+  <h3>用户登陆</h3>
+ <%= form_for(:session, url: sessions_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :email,"用户名:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
+    <div class="col-sm-9">
+      <%= f.text_field :email,{class: "form-control"} %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :password,"用户名:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
+    <div class="col-sm-9">
+      <%= f.text_field :password,{class: "form-control"} %>
+    </div>  
+  </div>
+      <%= f.submit "登陆",{class: "btn btn-default col-md-offset-6",style: "margin-top: 15px;" }%>
+  <% end %>
+</div>
+<% content_for :body do %>
+   <%"background-color: rgb(80, 75, 75);"%>
+<% end %>
+<% content_for :nav do %>
+   <%"border:none;background: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(rgb(60, 53, 53)));"%>
+<% end %>
+

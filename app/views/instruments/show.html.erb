@@ -26,8 +26,6 @@
     <%= f.fields_for :timetable do |timetable|%>
       <%= render "time_table", :f => timetable %>
     <% end %>
-    <%= f.submit %>
+    <%= f.submit '预约仪器',class: "btn btn-default instrument_reservation" %>
  <% end %>
-  <%= link_to '预约仪器',new_instrument_reservation_path(@instrument),class: "btn btn-default instrument_reservation","data-id" => @instrument.id %>
-  <%= link_to '仪器列表', admin_instruments_path,class: "btn btn-default" %>
 </div>

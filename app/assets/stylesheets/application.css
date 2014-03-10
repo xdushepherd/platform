@@ -20,3 +20,10 @@
  .padding-label label {
  	padding-top: 6px;
  }
+
+ .reservation-confirm {
+ 	background-color: rgb(231, 230, 230);
+    padding: 10px;
+    padding-left: 70px!important;
+    border-radius: 12px;
+ }

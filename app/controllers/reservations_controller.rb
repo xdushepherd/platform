@@ -45,7 +45,6 @@ class ReservationsController < ApplicationController
 
   def new_instrument
     @reservation.update(new_instrument_reservation)
-    binding.pry
   end
 
   # PATCH/PUT /reservations/1
@@ -79,7 +78,8 @@ class ReservationsController < ApplicationController
     end
 
     def new_instrument_reservation
-      params.require(:reservation).permit(:instrument_id,timetable_attributes: [:t1,:t2,:t3,:t4])
+      params.require(:reservation).permit(:instrument_id,timetable_attributes: [:t1,:t2,:t3,:t4,
+                                   :t5,:t6,:t7,:t8,:t9,:t10])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params

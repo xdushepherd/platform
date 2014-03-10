@@ -1,26 +1,27 @@
-<div class="col-md-offset-2 col-md-10">
-  <h3>商品信息</h3>
-  <div class="col-md-6">
-    仪器名称<%=@reservation.instrument.name%><br>
-  </div>
-  <div class="col-md-6">
-    仪器价格<%=@reservation.instrument.name%><br>
-  </div>
-  <div class="col-md-6">
-    仪器详情<%=@reservation.instrument.name%><br>
-  </div>
-  <div class="col-md-6">
-    使用时间<br>
-    <%= @reservation.timetable.t1 %><br>
-    <%= @reservation.timetable.t2 %><br>
-    <%= @reservation.timetable.t3 %><br>
-    <%= @reservation.timetable.t4 %><br>
-    <%= @reservation.timetable.t5 %><br>
-    <%= @reservation.timetable.t6 %><br>
-    <%= @reservation.timetable.t7 %><br>
-    <%= @reservation.timetable.t8 %><br>
-    <%= @reservation.timetable.t9 %><br>
-    <%= @reservation.timetable.t10 %><br>
+<div class="col-md-offset-2 col-md-8 reservation-confirm ">
+  <div>
+    <h3>商品信息</h3>
+    <div class="col-md-6">
+      <div class="col-md-4">仪器名称:</div><div class="col-md-8"><%=@reservation.instrument.name%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">所有者:</div><div class="col-md-8"><%=@reservation.instrument.unit_belongs_to%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">单价:</div><div class="col-md-8"><%=@reservation.instrument.price_once%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">仪器详情:</div><div class="col-md-8"><%=@reservation.instrument.description%></div>
+    </div>    
+    <h3 style="margin-top:65px;">预约信息</h3>
+    <div class="col-md-12">
+      <div class="col-md-4">使用时间:</div><div class="col-md-8"><%= @reservation.timetable.t1 %>
+    </div>
+    <div class="col-md-13">
+      <div class="col-md-4">总价:</div><div class="col-md-8"><%= @reservation.price %>
+    </div>
+    <div style="padding-top:70px;">
+      <%= link_to "取消订单","#",class: "btn btn-default col-md-offset-4" %>
+      <%= link_to "确认支付","#",class: "btn btn-success" %>
   </div>
 </div>
-<%= render 'form' %>
