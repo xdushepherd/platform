@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  layout  "admin",only: [:admin,:expert]
+  layout  "admin",only: [:admin,:expert,:edit]
 
 
   def admin
@@ -77,6 +77,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_reservation
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -85,6 +89,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name,:email,:unit_belongs_to,:if_expert)
     end
 end

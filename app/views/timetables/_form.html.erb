@@ -1,0 +1,57 @@
+<%= form_for(@timetable) do |f| %>
+  <% if @timetable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timetable.errors.count, "error") %> prohibited this timetable from being saved:</h2>
+
+      <ul>
+      <% @timetable.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :t1 %><br>
+    <%= f.number_field :t1 %>
+  </div>
+  <div class="field">
+    <%= f.label :t2 %><br>
+    <%= f.number_field :t2 %>
+  </div>
+  <div class="field">
+    <%= f.label :t3 %><br>
+    <%= f.number_field :t3 %>
+  </div>
+  <div class="field">
+    <%= f.label :t4 %><br>
+    <%= f.number_field :t4 %>
+  </div>
+  <div class="field">
+    <%= f.label :t5 %><br>
+    <%= f.text_field :t5 %>
+  </div>
+  <div class="field">
+    <%= f.label :t6 %><br>
+    <%= f.number_field :t6 %>
+  </div>
+  <div class="field">
+    <%= f.label :t7 %><br>
+    <%= f.number_field :t7 %>
+  </div>
+  <div class="field">
+    <%= f.label :t8 %><br>
+    <%= f.number_field :t8 %>
+  </div>
+  <div class="field">
+    <%= f.label :t9 %><br>
+    <%= f.number_field :t9 %>
+  </div>
+  <div class="field">
+    <%= f.label :t10 %><br>
+    <%= f.number_field :t10 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -16,3 +16,7 @@
  .padding-top {
  	margin-top: 100px;
  }
+
+ .padding-label label {
+ 	padding-top: 6px;
+ }

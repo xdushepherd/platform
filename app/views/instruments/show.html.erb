@@ -1,14 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <legend>仪器详情</legend>
+  <div class="col-md-6">
+     仪器名称<%= @instrument.name %>
+  </div>
+  <div class="col-md-6">
+     仪器介绍<%= @instrument.description  %>
+  </div>
+  <div class="col-md-6">
+     购买日期<%= @instrument.date_purchased  %>
+  </div>
+  <div class="col-md-6">
+     生产日期<%= @instrument.date_producted  %>
+  </div>
+  <div class="col-md-6">
+     单价<%= @instrument.price_once  %>
+  </div>
+  <div class="col-md-6">
+     品牌<%= @instrument.brand  %>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @instrument.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @instrument.description %>
-</p>
-
-<%= link_to 'Edit', edit_instrument_path(@instrument) %> |
-<%= link_to 'Back', instruments_path %>
+  所属单位<%= @instrument.unit_belongs_to  %><br>
+  用途<%= @instrument.type_belongs_to  %><br>
+ <%= form_for(@instrument,{class: "instrument form-horizontal"}) do |f| %>
+    <%= f.fields_for :timetable do |timetable|%>
+      <%= render "time_table", :f => timetable %>
+    <% end %>
+ <% end %>
+  <%= link_to '预约仪器',new_instrument_reservation_path(@instrument),class: "btn btn-default instrument_reservation","data-id" => @instrument.id %>
+  <%= link_to '仪器列表', admin_instruments_path,class: "btn btn-default" %>
+</div>

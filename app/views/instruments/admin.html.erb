@@ -16,8 +16,9 @@
         <td class="text-center">
             <%= link_to '仪器详情', instrument,{class: "btn btn-primary",style: "margin-left: 10px;" }%>
             <%= link_to '变更信息', edit_instrument_path(instrument),{ class: "btn btn-primary",style: "margin-left: 10px;" } %>
+            <%= link_to "仪器状态",edit_timetable_path(instrument),{ class: "btn btn-default"} %>            
             <%= link_to '删除仪器', instrument, method: :delete,
-                                   data: { confirm: 'Are you sure?' },class: "btn btn-primary"%>
+                                   data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
         </td>
       </tr>
     <% end %>

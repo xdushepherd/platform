@@ -1,5 +1,5 @@
 <div class="col-md-10 col-sm-offset-1">
- <%= form_for(@instrument,class: "form-horizontal") do |f| %>
+ <%= form_for(@instrument,{class: "instrument form-horizontal"}) do |f| %>
   <% if @instrument.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-  <legend>新增仪器</legend>
+  <legend>仪器信息</legend>
   <div class="form-group">
     <%= f.label :name,"仪器名称",class: "control-label col-md-2" %>
     <div class="col-md-4">

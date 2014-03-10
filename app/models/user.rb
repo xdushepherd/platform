@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
+   has_many  :reservations
    def self.experts
-   	  where(:expert,1)
+   	  where(if_expert: 1)
    end
 end

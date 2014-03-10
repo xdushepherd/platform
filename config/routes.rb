@@ -1,9 +1,14 @@
 Platform::Application.routes.draw do
 
 
+  resources :timetables
+
   resources :reservations do  
     collection do
        get 'admin'
+    end
+    member do
+       get 'new_instrument'
     end
   end
 

@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
+    @reservation = Reservation.new(instrument_id: params[:id])
   end
 
   # GET /reservations/1/edit
@@ -41,6 +41,10 @@ class ReservationsController < ApplicationController
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def new_instrument
+    @reservation = Reservation.new(instrument_id: params[:id])
   end
 
   # PATCH/PUT /reservations/1

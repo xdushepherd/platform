@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306104640) do
+ActiveRecord::Schema.define(version: 20140308140735) do
 
   create_table "instruments", force: true do |t|
     t.string   "name"
@@ -30,9 +30,26 @@ ActiveRecord::Schema.define(version: 20140306104640) do
     t.integer  "ser_number"
     t.float    "price"
     t.integer  "user_id"
-    t.integer  "status",     default: 0
+    t.integer  "status",        default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "instrument_id"
+  end
+
+  create_table "timetables", force: true do |t|
+    t.integer  "t1"
+    t.integer  "t2"
+    t.integer  "t3"
+    t.integer  "t4"
+    t.integer  "t5"
+    t.integer  "t6"
+    t.integer  "t7"
+    t.integer  "t8"
+    t.integer  "t9"
+    t.integer  "t10"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "instrument_id"
   end
 
   create_table "users", force: true do |t|
@@ -42,6 +59,9 @@ ActiveRecord::Schema.define(version: 20140306104640) do
     t.string   "email"
     t.string   "unit_belongs_to"
     t.integer  "expert",          default: 0
+    t.integer  "if_expert",       default: 0
+    t.string   "certification"
+    t.string   "tel"
   end
 
 end

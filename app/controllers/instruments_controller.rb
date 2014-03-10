@@ -1,7 +1,6 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
-  layout  "admin",only: [:admin]
-  
+  layout  "admin",except: [:index]
   # GET /instruments
   # GET /instruments.json
   
@@ -33,9 +32,10 @@ class InstrumentsController < ApplicationController
   # POST /instruments.json
   def create
     @instrument = Instrument.new(instrument_params)
-
     respond_to do |format|
       if @instrument.save
+        @timetable = @instrument.create_timetable
+        @timetable.save
         format.html { redirect_to @instrument, notice: 'Instrument was successfully created.' }
         format.json { render action: 'show', status: :created, location: @instrument }
       else
@@ -50,7 +50,7 @@ class InstrumentsController < ApplicationController
   def update
     respond_to do |format|
       if @instrument.update(instrument_params)
-        format.html { redirect_to @instrument, notice: 'Instrument was successfully updated.' }
+        format.html { redirect_to admin_instruments_url }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,7 +64,7 @@ class InstrumentsController < ApplicationController
   def destroy
     @instrument.destroy
     respond_to do |format|
-      format.html { redirect_to instruments_url }
+      format.html { redirect_to admin_instruments_url }
       format.json { head :no_content }
     end
   end
