@@ -17,6 +17,8 @@ class InstrumentsController < ApplicationController
   # GET /instruments/1
   # GET /instruments/1.json
   def show
+    @reservation = Reservation.create
+    @timetable = @reservation.build_timetable
   end
 
   # GET /instruments/new
@@ -79,6 +81,7 @@ class InstrumentsController < ApplicationController
     def instrument_params
       params.require(:instrument).permit(:name, :description,:date_producted,
                                          :date_purchased,:brand,:unit_belongs_to,
-                                         :type_belongs_to,:price_once)
+                                         :type_belongs_to,:price_once,
+                                         timetable_attributes: [:t1,:t2,:t3,:t4])
     end
 end

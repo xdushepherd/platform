@@ -8,7 +8,7 @@ Platform::Application.routes.draw do
        get 'admin'
     end
     member do
-       get 'new_instrument'
+       match 'new_instrument',via: [:get,:post,:patch]
     end
   end
 

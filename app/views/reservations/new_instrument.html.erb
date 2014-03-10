@@ -1,7 +1,26 @@
-<h1>商品信息</h1>
-仪器名称<%=@reservation.instrument.name%><br>
-仪器价格<%=@reservation.instrument.name%><br>
-仪器详情<%=@reservation.instrument.name%><br>
+<div class="col-md-offset-2 col-md-10">
+  <h3>商品信息</h3>
+  <div class="col-md-6">
+    仪器名称<%=@reservation.instrument.name%><br>
+  </div>
+  <div class="col-md-6">
+    仪器价格<%=@reservation.instrument.name%><br>
+  </div>
+  <div class="col-md-6">
+    仪器详情<%=@reservation.instrument.name%><br>
+  </div>
+  <div class="col-md-6">
+    使用时间<br>
+    <%= @reservation.timetable.t1 %><br>
+    <%= @reservation.timetable.t2 %><br>
+    <%= @reservation.timetable.t3 %><br>
+    <%= @reservation.timetable.t4 %><br>
+    <%= @reservation.timetable.t5 %><br>
+    <%= @reservation.timetable.t6 %><br>
+    <%= @reservation.timetable.t7 %><br>
+    <%= @reservation.timetable.t8 %><br>
+    <%= @reservation.timetable.t9 %><br>
+    <%= @reservation.timetable.t10 %><br>
+  </div>
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Back', reservations_path %>

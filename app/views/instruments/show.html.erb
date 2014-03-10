@@ -21,10 +21,12 @@
 
   所属单位<%= @instrument.unit_belongs_to  %><br>
   用途<%= @instrument.type_belongs_to  %><br>
- <%= form_for(@instrument,{class: "instrument form-horizontal"}) do |f| %>
+ <%= form_for(@reservation,url:new_instrument_reservation_path(@reservation)) do |f| %>
+    <%= f.hidden_field :instrument_id,value: @instrument.id %>
     <%= f.fields_for :timetable do |timetable|%>
       <%= render "time_table", :f => timetable %>
     <% end %>
+    <%= f.submit %>
  <% end %>
   <%= link_to '预约仪器',new_instrument_reservation_path(@instrument),class: "btn btn-default instrument_reservation","data-id" => @instrument.id %>
   <%= link_to '仪器列表', admin_instruments_path,class: "btn btn-default" %>

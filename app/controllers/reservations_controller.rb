@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy,:new_instrument]
   layout  "admin",only: [:admin]
 
 
@@ -44,7 +44,8 @@ class ReservationsController < ApplicationController
   end
 
   def new_instrument
-    @reservation = Reservation.new(instrument_id: params[:id])
+    @reservation.update(new_instrument_reservation)
+    binding.pry
   end
 
   # PATCH/PUT /reservations/1
@@ -77,8 +78,11 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.find(params[:id])
     end
 
+    def new_instrument_reservation
+      params.require(:reservation).permit(:instrument_id,timetable_attributes: [:t1,:t2,:t3,:t4])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:ser_number, :price, :user_id, :status)
+      params.require(:reservation).permit(:ser_number, :price, :user_id, :status,)
     end
 end
