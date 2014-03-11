@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  layout  "admin",only: [:admin,:expert,:edit]
-
 
   def admin
     @q = User.search(params[:q])
@@ -45,7 +43,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
          sign_in @user
-         redirect_to @user
+         format.html { redirect_to @user }         
       else
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -83,6 +81,10 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def admin_layout
+        self.class.layout  "admin" if current_user && admin?(current_user)
+    end
+
     def set_user
       @user = User.find(params[:id])
     end
