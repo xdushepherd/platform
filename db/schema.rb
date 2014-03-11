@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310012449) do
+ActiveRecord::Schema.define(version: 20140311140518) do
 
   create_table "instruments", force: true do |t|
     t.string   "name"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20140310012449) do
     t.integer  "if_expert",       default: 0
     t.string   "certification"
     t.string   "tel"
+    t.string   "password_digest"
+    t.string   "remember_token"
   end
 
 end

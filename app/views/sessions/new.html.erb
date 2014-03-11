@@ -2,15 +2,15 @@
   <h3>用户登陆</h3>
  <%= form_for(:session, url: sessions_path) do |f| %>
   <div class="form-group">
-    <%= f.label :email,"用户名:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
+    <%= f.label :email,"邮箱地址:", {class: "control-label col-sm-3",style: "margin-top: 10px;"} %>
     <div class="col-sm-9">
       <%= f.text_field :email,{class: "form-control"} %>
     </div>  
   </div>
   <div class="form-group">
-    <%= f.label :password,"用户名:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
+    <%= f.label :password,"密码:", {class: "control-label col-sm-3",style: "margin-top: 27px;"} %>
     <div class="col-sm-9">
-      <%= f.text_field :password,{class: "form-control"} %>
+      <%= f.password_field :password,{class: "form-control",style: "margin-top: 20px;"} %>
     </div>  
   </div>
       <%= f.submit "登陆",{class: "btn btn-default col-md-offset-6",style: "margin-top: 15px;" }%>

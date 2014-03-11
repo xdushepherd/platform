@@ -1,15 +1,4 @@
 <%= form_for(@user,class: "form-horizontal") do |f| %>  
-    <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-group">
     <%= f.label :name,"用户名:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
     <div class="col-sm-9">
@@ -17,33 +6,21 @@
     </div>  
   </div>
   <div class="form-group">
-    <%= f.label :if_expert,"会员级别:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
-    <div class="col-sm-9">
-      <%= f.text_field :if_expert,{class: "form-control"} %>
-    </div>  
-  </div>
-  <div class="form-group">
-    <%= f.label :unit_belongs_to,"所属单位:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
-    <div class="col-sm-9">
-      <%= f.text_field :unit_belongs_to,{class: "form-control"} %>
-    </div>  
-  </div>
-  <div class="form-group">
-    <%= f.label :certification,"身份证号:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
-    <div class="col-sm-9">
-      <%= f.text_field :certification,{class: "form-control"} %>
-    </div>  
-  </div>
-  <div class="form-group">
-    <%= f.label :tel," 手机号码:", {class: "control-label col-sm-3",style: "margin-top: 5px;"} %>
-    <div class="col-sm-9">
-      <%= f.text_field :tel,{class: "form-control"} %>
-    </div>  
-  </div>
-  <div class="form-group">
     <%= f.label :email,"邮箱:", {class: "control-label col-sm-3",style: "margin-top: 20px;"} %>
     <div class="col-sm-9">
       <%= f.text_field :email ,{class: "form-control",style: "margin-top: 15px;" } %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :password,"密码:", {class: "control-label col-sm-3",style: "margin-top: 20px;"} %>
+    <div class="col-sm-9">
+      <%= f.password_field :password ,{class: "form-control",style: "margin-top: 15px;" } %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation,"确认密码:", {class: "control-label col-sm-3",style: "margin-top: 20px;"} %>
+    <div class="col-sm-9">
+      <%= f.password_field :password_confirmation ,{class: "form-control",style: "margin-top: 15px;" } %>
     </div>  
   </div>
   <div class="form-group">
