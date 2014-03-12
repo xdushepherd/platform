@@ -33,6 +33,7 @@ a<!DOCTYPE html>
           <% else %>
             <ul class="nav navbar-nav pull-right">
               <span><%= link_to "当前登陆:管理员"+current_user.name,current_user,{class: "btn btn-default",style: "margin-top: 10px;"}%></span>
+              <span><%= link_to "退出",signout_path,class: "btn btn-default",style: "margin-top: 10px;",method: :delete, data: { confirm: "确定要退出本次登陆吗？" }%></span>
             </ul>  
           <% end %>  
         </div><!--/.nav-collapse -->

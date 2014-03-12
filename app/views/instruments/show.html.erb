@@ -1,31 +1,39 @@
-<div>
-  <legend>仪器详情</legend>
-  <div class="col-md-6">
-     仪器名称<%= @instrument.name %>
-  </div>
-  <div class="col-md-6">
-     仪器介绍<%= @instrument.description  %>
-  </div>
-  <div class="col-md-6">
-     购买日期<%= @instrument.date_purchased  %>
-  </div>
-  <div class="col-md-6">
-     生产日期<%= @instrument.date_producted  %>
-  </div>
-  <div class="col-md-6">
-     单价<%= @instrument.price_once  %>
-  </div>
-  <div class="col-md-6">
-     品牌<%= @instrument.brand  %>
-  </div>
-
-  所属单位<%= @instrument.unit_belongs_to  %><br>
-  用途<%= @instrument.type_belongs_to  %><br>
- <%= form_for(@reservation,url:new_instrument_reservation_path(@reservation)) do |f| %>
+<div class="col-md-offset-2 col-md-8 reservation-confirm ">
+    <h3>仪器信息</h3>
+    <div class="col-md-6">
+      <div class="col-md-4">仪器名称:</div><div class="col-md-8"><%=@instrument.name%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">所有者:</div><div class="col-md-8"><%=@instrument.unit_belongs_to%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">单价:</div><div class="col-md-8"><%=@instrument.price_once%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">仪器详情:</div><div class="col-md-8"><%=@instrument.description%></div>
+    </div> 
+    <div class="col-md-6">
+      <div class="col-md-4">购买日期:</div><div class="col-md-8"><%=@instrument.date_purchased %></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4"> 生产日期:</div><div class="col-md-8"><%=@instrument.date_producted%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">单价:</div><div class="col-md-8"><%=@instrument.price_once%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">品牌:</div><div class="col-md-8"><%=@instrument.brand %></div>
+    </div>      
+    <div class="col-md-6">
+      <div class="col-md-4">用途:</div><div class="col-md-8"><%=@instrument.type_belongs_to  %></div>
+    </div>  
+ <%  unless admin? current_user %> 
+   <%= form_for(@reservation,url:new_instrument_reservation_path(@reservation)) do |f| %>
     <%= f.hidden_field :instrument_id,value: @instrument.id %>
     <%= f.fields_for :timetable do |timetable|%>
       <%= render "time_table", :f => timetable %>
     <% end %>
-    <%= f.submit '预约仪器',class: "btn btn-default instrument_reservation" %>
+    <%= f.submit '预约仪器',class: "btn btn-default instrument_reservation col-md-offset-5" %>
+   <% end %>
  <% end %>
 </div>

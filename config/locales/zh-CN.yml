@@ -1,0 +1,16 @@
+"zh-CN":
+  activerecord:
+    models:
+      instrument: "仪器"
+    attributes:
+      instrument: 
+        name: "仪器名称"
+        unit_belongs_to: "所有者"
+    errors:
+      models:
+        instrument:
+          attributes:
+            name:
+              blank: "不能为空"
+            unit_belongs_to:
+              blank: "不能为空"
