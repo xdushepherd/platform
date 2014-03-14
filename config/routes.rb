@@ -1,16 +1,20 @@
 Platform::Application.routes.draw do
 
 
+  namespace :admin do
+    resources :instruments
+    resources :reservations
+    resources :users
+    resources :experts
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   match 'signin',to: "sessions#new",via: :get
-  match 'signout',to: "sessions#destroy",via: :post
+  match 'signout',to: "sessions#destroy",via: :delete
 
   resources :timetables
 
   resources :reservations do  
-    collection do
-       get 'admin'
-    end
     member do
        match 'new_instrument',via: [:get,:post,:patch]
     end
@@ -18,19 +22,13 @@ Platform::Application.routes.draw do
 
   resources :users do
     collection do 
-       get 'admin'
        get 'expert'
        get 'experts'
     end
   end
 
   resources :instruments do
-    collection do
-         get 'admin'
-    end
   end
-
-  get "welcome/index"
   root 'welcome#index'
 
   # Example of regular route:

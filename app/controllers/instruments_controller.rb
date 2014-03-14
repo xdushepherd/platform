@@ -1,6 +1,5 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
-  layout  "admin",except: [:index]
   # GET /instruments
   # GET /instruments.json
   

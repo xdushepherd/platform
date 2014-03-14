@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }   
    # validates :password, length: { minimum: 6 }
+
+   def email=
+     email.downcase
+   end
+
    def self.experts
    	  where(if_expert: 1)
    end

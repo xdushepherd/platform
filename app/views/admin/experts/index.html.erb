@@ -1,0 +1,50 @@
+<div class="col-xs-12 col-sm-6 col-md-8">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center text-info">名称</th>
+      <th class="text-center text-info">邮箱地址</th>
+      <th class="text-center text-info">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @experts.each do |user| %>
+      <tr>
+        <td class="text-center"><%= user.name %></td>
+        <td class="text-center"><%= user.id %></td>
+        <td class="text-center">
+            <%= link_to '专家详情', user,{class: "btn btn-primary",style: "margin-left: 10px;" }%>
+            <%= link_to '变更信息', edit_user_path(user),{ class: "btn btn-primary",style: "margin-left: 10px;" } %>
+            <%= link_to '删除专家', user, method: :delete,
+                                   data: { confirm: 'Are you sure?' },class: "btn btn-primary"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="col-xs-6 col-md-4" style="margin-top: 100px;">
+              <h3>筛选专家</h3>
+              <%= search_form_for @q,class: "form-horizontal" do |f| %>
+                 <fieldset>
+                 <div class="form-group">
+                    <%= f.label "专家名称",{ class: "control-label col-md-3" } %>
+                    <div class="col-md-8">
+                      <%= f.text_field :name_cont,{ class: "form-control" } %>
+                    </div>
+                 </div>   
+                 <div class="form-group">
+                    <%= f.label "专家技能",{ class: "control-label col-md-3" } %>
+                    <div class="col-md-8">
+                      <%= f.text_field :name_cont,{ class: "form-control" } %>
+                    </div>
+                 </div>   
+                 <div class="form-group">
+                  <div class="col-sm-offset-6 col-sm-10" style="margin-top: 30px;">
+                    <%= f.submit "查询",{type: "button",class: "btn btn-primary"} %>
+                  </div>  
+                 </div>
+                 </fieldset>   
+              <% end %>
+</div>
