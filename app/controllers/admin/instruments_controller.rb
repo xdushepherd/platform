@@ -72,7 +72,8 @@ class Admin::InstrumentsController < Admin::ApplicationController
     def admin_instrument_params
       params.require(:instrument).permit(:name, :description,:date_producted,
                                          :date_purchased,:brand,:unit_belongs_to,
-                                         :type_belongs_to,:price_once,
+                                         :type_belongs_to,:price_once,:producted_factory,
+                                         :adddress,:specification,
                                          timetable_attributes: [:t1,:t2,:t3,:t4,
                                          :t5,:t6,:t7,:t8,:t9,:t10])
     end

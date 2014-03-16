@@ -1,58 +1,64 @@
-<div class="col-xs-12 col-sm-6 col-md-8">
-<table class="table table-striped">
+<div class="col-md-12 col-md-offset-1">              
+  <%= search_form_for @q,url: admin_instruments_path ,class: "form-inline" do |f| %>
+  <h3 class="float-left margin-top-5">筛选仪器</h3>
+  <div class="form-group">
+    <%= f.label "仪器名称",{ class: "sr-only" } %>
+     <div class="col-md-8">
+    <%= f.text_field :name_cont,{ class: "form-control" } %>
+    </div>
+  </div>   
+  <div class="form-group">
+    <%= f.label "仪器分类",{ class: "sr-only" } %>
+    <div class="col-md-8">
+      <%= f.text_field :name_cont,{ class: "form-control" } %>
+    </div>
+  </div>   
+  <div class="form-group">
+    <%= f.label "所属单位",{ class: "sr-only" } %>
+    <div class="col-md-8">
+      <%= f.text_field :name_cont,{ class: "form-control" } %>
+    </div>
+  </div>   
+  <div class="form-group">
+    <%= f.submit "查询仪器",{class: "btn btn-primary"} %>
+    <%= link_to '添加仪器', new_admin_instrument_path,class: "btn btn-success"%>
+  </div>
+  <% end %>
+</div>
+<div class="col-md-12">
+<table class="table table-bordered">
   <thead>
     <tr>
+      <th class="text-center">仪器编号</th>
+      <th class="text-center">仪器名称</th>
+      <th class="text-center">购置日期</th>
+      <th class="text-center">生产厂家</th>
+      <th class="text-center">所属单位</th>
+      <th class="text-center">购置价格</th>
       <th class="text-center">仪器名称</th>
       <th class="text-center">所属单位</th>
-      <th class="text-center">操作</th>
+      <th class="text-center">规格型号</th>
+      <th class="text-center">状态</th>
+      <th class="text-center">安置地点</th>
     </tr>
   </thead>
 
   <tbody>
     <% @instruments.each do |instrument| %>
       <tr>
+        <td class="text-center"><%= instrument.id %></td>
+        <td class="text-center"><%= link_to instrument.name,admin_instrument_path(instrument),class: "btn btn-sm btn-info" %></td>
+        <td class="text-center"><%= instrument.date_purchased %></td>
+        <td class="text-center"><%= instrument.producted_factory %></td>
+        <td class="text-center"><%= instrument.unit_belongs_to %></td>
+        <td class="text-center"><%= instrument.purchased_price %></td>
+        <td class="text-center"><%= instrument.specification %></td>
+        <td class="text-center"><%= instrument.id %></td>
+        <td class="text-center"><%= instrument.adddress %></td>
         <td class="text-center"><%= instrument.name %></td>
         <td class="text-center"><%= instrument.description %></td>
-        <td class="text-center">
-            <%= link_to '仪器详情', instrument,{class: "btn btn-primary",style: "margin-left: 10px;" }%>
-            <%= link_to '变更信息', edit_instrument_path(instrument),{ class: "btn btn-primary",style: "margin-left: 10px;" } %>
-            <%= link_to "仪器状态",edit_timetable_path(instrument),{ class: "btn btn-default"} %>            
-            <%= link_to '删除仪器', instrument, method: :delete,
-                                   data: { confirm: 'Are you sure?' },class: "btn btn-danger"%>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</div>
-<div class="col-xs-6 col-md-4" style="margin-top: 100px;">
-              <%= link_to '添加仪器', new_instrument_path,class: "btn btn-success col-sm-offset-4"%>
-              <h3>筛选仪器</h3>
-              <%= search_form_for @q,url: admin_instruments_path ,class: "form-horizontal" do |f| %>
-                 <fieldset>
-                 <div class="form-group">
-                    <%= f.label "仪器名称",{ class: "control-label col-md-3" } %>
-                    <div class="col-md-8">
-                      <%= f.text_field :name_cont,{ class: "form-control" } %>
-                    </div>
-                 </div>   
-                 <div class="form-group">
-                    <%= f.label "仪器分类",{ class: "control-label col-md-3" } %>
-                    <div class="col-md-8">
-                      <%= f.text_field :name_cont,{ class: "form-control" } %>
-                    </div>
-                 </div>   
-                 <div class="form-group">
-                    <%= f.label "所属单位",{ class: "control-label col-md-3" } %>
-                    <div class="col-md-8">
-                      <%= f.text_field :name_cont,{ class: "form-control" } %>
-                    </div>
-                 </div>   
-                 <div class="form-group">
-                  <div class="col-sm-offset-6 col-sm-10" style="margin-top: 30px;">
-                    <%= f.submit "查询",{class: "btn btn-primary"} %>
-                  </div>  
-                 </div>
-                 </fieldset>   
-              <% end %>
 </div>

@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   include UsersHelper
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def admin_layout
         self.class.layout  "admin" if current_user && admin?(current_user)
     end

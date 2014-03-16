@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require "bootstrap"
+ *= require bootstrap
  *= require_tree .
  */
 
@@ -26,4 +26,12 @@
     padding: 10px;
     padding-left: 70px!important;
     border-radius: 12px;
+ }
+
+ .float-left {
+ 	float: left;
+ }
+
+ .margin-top-5 {
+ 	margin-top: 5px !important;
  }

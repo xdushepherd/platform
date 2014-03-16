@@ -1,4 +1,4 @@
-<div class="col-md-10 col-sm-offset-2">
+<div class="col-md-10 col-sm-offset-1">
  <%= form_for(@instrument,{class: "instrument form-horizontal"}) do |f| %>
   <% if @instrument.errors.any? %>
     <div id="error_explanation" class="col-md-offset-3">
@@ -18,10 +18,22 @@
       <%= f.text_field :name,class: "form-control" %>
     </div>
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <%= f.label :brand,"仪器平牌",class: "control-label col-md-2" %>
     <div class="col-md-4">
       <%= f.text_field :brand,class: "form-control"  %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :producted_factory,"生产厂商",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :producted_factory,class: "form-control"  %>
+    </div>  
+  </div>
+  <div class="form-group">
+    <%= f.label :specification,"规格型号",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :specification,class: "form-control"  %>
     </div>  
   </div>
   <div class="form-group">
@@ -37,19 +49,31 @@
     </div>  
   </div>
   <div class="form-group">
+    <%= f.label :specification,"规格型号",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :specification,class: "form-control"  %>
+    </div>  
+  </div>
+  <div class="form-group">
     <%= f.label :type_belongs_to,"仪器用途",class: "control-label col-md-2" %>
     <div class="col-md-4">
       <%= f.text_field :type_belongs_to,class: "form-control"  %>
     </div>  
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <%= f.label :unit_belongs_to,"所属单位",class: "control-label col-md-2" %>
     <div class="col-md-4">
       <%= f.text_field :unit_belongs_to,class: "form-control"  %>
     </div>  
   </div>
     <div class="form-group">
-    <%= f.label :price_once,"单价",class: "control-label col-md-2" %>
+    <%= f.label :adddress,"安置地点",class: "control-label col-md-2" %>
+    <div class="col-md-4">
+      <%= f.text_field :adddress,class: "form-control"  %>
+    </div>  
+  </div>
+    <div class="form-group">
+    <%= f.label :price_once,"单价(小时)",class: "control-label col-md-2" %>
     <div class="col-md-4">
       <%= f.text_field :price_once,class: "form-control"  %>
     </div>  

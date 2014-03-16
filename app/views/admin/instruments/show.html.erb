@@ -26,14 +26,9 @@
     </div>      
     <div class="col-md-6">
       <div class="col-md-4">用途:</div><div class="col-md-8"><%=@instrument.type_belongs_to  %></div>
+    </div>
+    <div class="col-md-12 col-md-offset-3 margin-top-5">
+     <%= link_to '变更信息', edit_instrument_path(@instrument),{ class: "btn btn-primary",style: "margin-left: 10px;" } %>    
+     <%= link_to '删除仪器', @instrument, method: :delete,data: { confirm: '确定要删除该仪器?' },class: "btn btn-danger"%>
     </div>  
- <%  unless admin? current_user %> 
-   <%= form_for(@reservation,url:new_instrument_reservation_path(@reservation)) do |f| %>
-    <%= f.hidden_field :instrument_id,value: @instrument.id %>
-    <%= f.fields_for :timetable do |timetable|%>
-      <%= render "time_table", :f => timetable %>
-    <% end %>
-    <%= f.submit '预约仪器',class: "btn btn-default instrument_reservation col-md-offset-5" %>
-   <% end %>
- <% end %>
 </div>
