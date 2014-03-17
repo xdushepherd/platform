@@ -15,7 +15,6 @@ group :doc do
 end
 
 ###########
-gem "rolify"
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"

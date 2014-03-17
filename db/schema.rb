@@ -11,33 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316032542) do
+ActiveRecord::Schema.define(version: 20140317144244) do
 
   create_table "instruments", force: true do |t|
     t.string   "name"
+    t.string   "brand"
+    t.string   "useage"
+    t.string   "address"
+    t.string   "unit_id"
+    t.integer  "price_once"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "unit_belongs_to"
+    t.string   "specification"
     t.datetime "date_producted"
     t.datetime "date_purchased"
-    t.string   "brand"
-    t.string   "type_belongs_to"
-    t.integer  "price_once"
+    t.integer  "purchased_price"
     t.string   "producted_factory"
-    t.string   "purchased_price"
-    t.string   "adddress"
-    t.string   "specification"
+    t.integer  "status",            default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reservations", force: true do |t|
     t.integer  "ser_number"
     t.float    "price"
     t.integer  "user_id"
-    t.integer  "status",        default: 0
+    t.integer  "instrument_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "instrument_id"
   end
 
   create_table "roles", force: true do |t|
@@ -51,35 +51,26 @@ ActiveRecord::Schema.define(version: 20140316032542) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
-  create_table "timetables", force: true do |t|
-    t.integer  "t1"
-    t.integer  "t2"
-    t.integer  "t3"
-    t.integer  "t4"
-    t.integer  "t5"
-    t.integer  "t6"
-    t.integer  "t7"
-    t.integer  "t8"
-    t.integer  "t9"
-    t.integer  "t10"
+  create_table "schedules", force: true do |t|
+    t.datetime "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "markable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "instrument_id"
-    t.integer  "reservation_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "email"
-    t.string   "unit_belongs_to"
-    t.integer  "expert",          default: 0
+    t.integer  "unit_id"
     t.integer  "if_expert",       default: 0
     t.string   "certification"
     t.string   "tel"
-    t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users_roles", id: false, force: true do |t|

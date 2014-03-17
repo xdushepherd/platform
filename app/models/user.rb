@@ -1,6 +1,5 @@
 #encoding : utf-8
 class User < ActiveRecord::Base
-   rolify
    has_many  :reservations
    before_create :create_remember_token
    has_secure_password

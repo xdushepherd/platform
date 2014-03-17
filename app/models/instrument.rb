@@ -1,7 +1,7 @@
 class Instrument < ActiveRecord::Base
-	has_one :timetable
+	has_many :schedules, as: :markable
 	has_many :reservations
-	accepts_nested_attributes_for :timetable
+	accepts_nested_attributes_for :schedules
 
 	validates :name,presence: true
 	validates :unit_belongs_to,presence: true
