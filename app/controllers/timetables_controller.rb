@@ -20,8 +20,8 @@ class TimetablesController < ApplicationController
 
   # GET /timetables/1/edit
   def edit
-    @instrument =Instrument.find(params[:id])
-    @timetable = @instrument.timetable
+    # @instrument =Instrument.find(params[:id])
+    # @timetable = @instrument.timetable
   end
 
   # POST /timetables
@@ -69,7 +69,7 @@ class TimetablesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_timetable
-      #
+      @timetable = Timetable.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

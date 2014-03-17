@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316032542) do
+ActiveRecord::Schema.define(version: 20140316125834) do
 
   create_table "instruments", force: true do |t|
     t.string   "name"
@@ -66,6 +66,21 @@ ActiveRecord::Schema.define(version: 20140316032542) do
     t.datetime "updated_at"
     t.integer  "instrument_id"
     t.integer  "reservation_id"
+    t.datetime "day"
+    t.integer  "t11"
+    t.integer  "t12"
+    t.integer  "t13"
+    t.integer  "t14"
+    t.integer  "t15"
+    t.integer  "t16"
+    t.integer  "t17"
+    t.integer  "t18"
+    t.integer  "t19"
+    t.integer  "t20"
+    t.integer  "t21"
+    t.integer  "t22"
+    t.integer  "t23"
+    t.integer  "t24"
   end
 
   create_table "users", force: true do |t|

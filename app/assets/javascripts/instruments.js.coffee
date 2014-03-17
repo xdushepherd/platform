@@ -2,14 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# jQuery ->
-# 	url = 
-# 	    new_reservation: "/reservations/new"
-# 	$(".instrument_reservation").click ->
-# 		console.log url.new_reservation
-# 		data =
-# 			id: $(@).data("id")
-# 		$.ajax
-# 		  type: "put"
-# 		  url:  url.new_reservation
-# 		  data: data
+jQuery ->
+  $('#instrument_date_purchased')
+    .datetimepicker({
+      language: 'zh-CN',
+      autoclose: 'true',
+      minView: 2,
+      format: 'yyyy-mm-dd'
+    })
+    .datetimepicker('show')
+  $('#instrument_date_producted')
+    .datetimepicker({
+      language: 'zh-CN',
+      autoclose: 'true',
+      minView: 2,
+      format: 'yyyy-mm-dd'
+    })
+    .datetimepicker('show')
