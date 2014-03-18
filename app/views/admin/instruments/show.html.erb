@@ -1,34 +1,33 @@
-<div class="col-md-offset-2 col-md-8 reservation-confirm ">
-    <h3>仪器信息</h3>
+<div class="col-md-offset-1 col-md-10 reservation-confirm ">
     <div class="col-md-6">
       <div class="col-md-4">仪器名称:</div><div class="col-md-8"><%=@instrument.name%></div>
     </div>
     <div class="col-md-6">
-      <div class="col-md-4">所有者:</div><div class="col-md-8"><%=@instrument.unit_belongs_to%></div>
+      <div class="col-md-4">生产厂商:</div><div class="col-md-8"><%=@instrument.producted_factory%></div>
     </div>
     <div class="col-md-6">
-      <div class="col-md-4">单价:</div><div class="col-md-8"><%=@instrument.price_once%></div>
+      <div class="col-md-4">仪器型号:</div><div class="col-md-8"><%=@instrument.specification%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">购置价格:</div><div class="col-md-8"><%=@instrumentpurchased_price%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4"> 生产日期:</div><div class="col-md-8"><%=@instrument.date_producted.strftime("%Y-%m-%d") %></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">购买日期:</div><div class="col-md-8"><%=@instrument.date_purchased.strftime("%Y-%m-%d")  %></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">所属单位:</div><div class="col-md-8"><%=@instrument.unit.name rescue ''%></div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4">用途:</div><div class="col-md-8"><%=@instrument.useage  %></div>
     </div>
     <div class="col-md-6">
       <div class="col-md-4">仪器详情:</div><div class="col-md-8"><%=@instrument.description%></div>
-    </div> 
-    <div class="col-md-6">
-      <div class="col-md-4">购买日期:</div><div class="col-md-8"><%=@instrument.date_purchased %></div>
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-4"> 生产日期:</div><div class="col-md-8"><%=@instrument.date_producted%></div>
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-4">单价:</div><div class="col-md-8"><%=@instrument.price_once%></div>
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-4">品牌:</div><div class="col-md-8"><%=@instrument.brand %></div>
     </div>      
-    <div class="col-md-6">
-      <div class="col-md-4">用途:</div><div class="col-md-8"><%=@instrument.type_belongs_to  %></div>
-    </div>
-    <div class="col-md-12 col-md-offset-3 margin-top-5">
-     <%= link_to '变更信息', edit_instrument_path(@instrument),{ class: "btn btn-primary",style: "margin-left: 10px;" } %>    
+    <div class="col-md-12 col-md-offset-4 margin-top-100">
+     <%= link_to '变更信息', edit_admin_instrument_path(@instrument),{ class: "btn btn-primary",style: "margin-left: 10px;" } %>    
      <%= link_to '删除仪器', @instrument, method: :delete,data: { confirm: '确定要删除该仪器?' },class: "btn btn-danger"%>
     </div>  
 </div>

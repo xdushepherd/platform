@@ -3,15 +3,31 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.new_instrument .col-md-4 input {
-  margin-top: 20px;
-}
-
-.new_instrument .col-md-4 textarea {
-  margin-top: 20px;
-}
-
 .new_instrument label.control-label {
-  padding-top: 31px;
+  padding-top: 8px;
   width: 130px;
 }
+
+.edit_instrument label.control-label {
+  padding-top: 8px;
+  width: 130px;
+}
+
+.instrument-status-0 {
+	background-color: #5396fc;
+}
+
+.instrument-status-0 td a {
+	text-decoration: none;
+	color: #404347;
+}
+
+.instrument-status-0 td a:hover {
+	background-color: #5396fc;
+	color: black;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
+

@@ -26,37 +26,34 @@
   <% end %>
 </div>
 <div class="col-md-12">
-<table class="table table-bordered">
+<table class="table table-bordered instrument-list">
   <thead>
     <tr>
       <th class="text-center">仪器编号</th>
       <th class="text-center">仪器名称</th>
-      <th class="text-center">购置日期</th>
       <th class="text-center">生产厂家</th>
+      <th class="text-center">规格型号</th>
+      <th class="text-center">生产日期</th>
+      <th class="text-center">购置日期</th>
       <th class="text-center">所属单位</th>
       <th class="text-center">购置价格</th>
-      <th class="text-center">仪器名称</th>
-      <th class="text-center">所属单位</th>
-      <th class="text-center">规格型号</th>
-      <th class="text-center">状态</th>
       <th class="text-center">安置地点</th>
     </tr>
   </thead>
 
   <tbody>
     <% @instruments.each do |instrument| %>
-      <tr>
+      <tr class="instrument-status-<%=instrument.status%>">
         <td class="text-center"><%= instrument.id %></td>
-        <td class="text-center"><%= link_to instrument.name,admin_instrument_path(instrument),class: "btn btn-sm btn-info" %></td>
-        <td class="text-center"><%= instrument.date_purchased %></td>
+        <td class="text-center"><%= link_to instrument.name,admin_instrument_path(instrument),
+                                                                  class: "text-primary" %></td>
         <td class="text-center"><%= instrument.producted_factory %></td>
-        <td class="text-center"><%= instrument.unit_belongs_to %></td>
-        <td class="text-center"><%= instrument.purchased_price %></td>
         <td class="text-center"><%= instrument.specification %></td>
-        <td class="text-center"><%= instrument.id %></td>
-        <td class="text-center"><%= instrument.adddress %></td>
-        <td class="text-center"><%= instrument.name %></td>
-        <td class="text-center"><%= instrument.description %></td>
+        <td class="text-center"><%= instrument.date_producted.strftime("%Y-%m-%d") %></td>
+        <td class="text-center"><%= instrument.date_purchased.strftime("%Y-%m-%d") %></td>        
+        <td class="text-center"><%= instrument.unit_id %></td>
+        <td class="text-center"><%= instrument.purchased_price %></td>        
+        <td class="text-center"><%= instrument.address %></td>
       </tr>
     <% end %>
   </tbody>

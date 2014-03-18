@@ -26,14 +26,13 @@ class Admin::InstrumentsController < Admin::ApplicationController
   # POST /admin/instruments.json
   def create
     @instrument = Instrument.new(admin_instrument_params)
-
     respond_to do |format|
-      if @admin_instrument.save
-        format.html { redirect_to @admin_instrument, notice: 'Instrument was successfully created.' }
+      if @instrument.save
+        format.html { redirect_to admin_instrument_url(@instrument), notice: 'Instrument was successfully created.' }
         format.json { render action: 'show', status: :created, location: @admin_instrument }
       else
         format.html { render action: 'new' }
-        format.json { render json: @admin_instrument.errors, status: :unprocessable_entity }
+        format.json { render json: @instrument.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,11 +42,11 @@ class Admin::InstrumentsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @instrument.update(admin_instrument_params)
-        format.html { redirect_to @admin_instrument, notice: 'Instrument was successfully updated.' }
+        format.html { redirect_to admin_instrument_url(@instrument), notice: 'Instrument was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @admin_instrument.errors, status: :unprocessable_entity }
+        format.json { render json: @instrument.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +56,7 @@ class Admin::InstrumentsController < Admin::ApplicationController
   def destroy
     @instrument.destroy
     respond_to do |format|
-      format.html { redirect_to admin_instruments_url }
+      format.html { redirect_to instruments_url }
       format.json { head :no_content }
     end
   end
@@ -71,10 +70,9 @@ class Admin::InstrumentsController < Admin::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_instrument_params
       params.require(:instrument).permit(:name, :description,:date_producted,
-                                         :date_purchased,:brand,:unit_belongs_to,
-                                         :type_belongs_to,:price_once,:producted_factory,
-                                         :adddress,:specification,
-                                         timetable_attributes: [:t1,:t2,:t3,:t4,
-                                         :t5,:t6,:t7,:t8,:t9,:t10])
+                                         :date_purchased,:brand,:unit_id,
+                                         :purchased_price,:producted_factory,
+                                         :address,:specification,:useage
+                                         )
     end
 end

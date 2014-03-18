@@ -16,8 +16,6 @@ class InstrumentsController < ApplicationController
   # GET /instruments/1
   # GET /instruments/1.json
   def show
-    @reservation = Reservation.create
-    @timetable = @reservation.build_timetable
   end
 
   # GET /instruments/new
@@ -35,8 +33,6 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.new(instrument_params)
     respond_to do |format|
       if @instrument.save
-        @timetable = @instrument.create_timetable
-        @timetable.save
         format.html { redirect_to @instrument, notice: 'Instrument was successfully created.' }
         format.json { render action: 'show', status: :created, location: @instrument }
       else

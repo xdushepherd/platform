@@ -1,5 +1,5 @@
 <div class="col-md-10 col-sm-offset-1">
- <%= form_for(@instrument,url: admin_instruments_path,method: :post,class: "instrument form-horizontal") do |f| %>
+ <%= form_for(@instrument,url: admin_instrument_path,method: :put,class: "instrument form-horizontal") do |f| %>
   <div class="form-group col-md-6">
     <%= f.label :name,"仪器名称",class: "control-label col-md-4" %>
     <div class="col-md-8">

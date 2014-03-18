@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap-datetimepicker.min
  *= require bootstrap
  *= require_tree .
  */
@@ -23,9 +24,13 @@
 
  .reservation-confirm {
  	background-color: rgb(231, 230, 230);
-    padding: 10px;
+ 	height: 400px;
+    padding: 60px;
     padding-left: 70px!important;
     border-radius: 12px;
+    margin-top: 50px;
+    font-size: 25px;
+    line-height: 36px;
  }
 
  .float-left {
@@ -34,4 +39,8 @@
 
  .margin-top-5 {
  	margin-top: 5px !important;
+ }
+
+ .margin-top-100 {
+ 	margin-top: 100px !important;
  }
