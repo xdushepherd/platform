@@ -1,5 +1,5 @@
 class Instrument < ActiveRecord::Base
-	has_one  :schedule, as: :markable
+	has_many  :schedules, as: :markable
 	has_many :timetables,through: :schedules
 	has_many :reservations
 	belongs_to :unit

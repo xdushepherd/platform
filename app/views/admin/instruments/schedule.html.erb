@@ -1,4 +1,20 @@
 <h3>仪器占用时间表</h3>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default col-md-12" >
+    <div class="panel-heading col-md-3">
+      <h5 class="panel-title" style="float:left">
+        <%= link_to "更新仪器日程表","#",class: "btn btn-default",
+          "data-toggle" => "collapse","data-parent" => "#accordion",
+          href: "#collapseOne" %>
+      </h5>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse col-md-9" style="float:left">
+      <div class="panel-body">
+        <%= text_field_tag :schedule,nil,{class: "form-control col-md-4"}%> 
+      </div>
+    </div>
+  </div>
+</div>
 <table class="table table-bordered instrument-list">
   <thead>
     <tr>
@@ -11,7 +27,8 @@
   </thead>
 
   <tbody>
-    <% @instrument.schedule.timetables.each do |timetable| %>
+    <% @instrument.schedules.each do |schedule| %>
+      <% schedule.timetables.each do |timetable| %>
        <tr >
         <td class="text-center"><%= timetable.schedule.instrument.id.to_s.rjust(5, '0') %></td>
         <td class="text-center"><%= link_to timetable.schedule.instrument.name,
