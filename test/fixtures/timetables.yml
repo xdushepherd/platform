@@ -1,25 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  t1: 1
-  t2: 1
-  t3: 1
-  t4: 1
-  t5: 
-  t6: 1
-  t7: 1
-  t8: 1
-  t9: 1
-  t10: 1
+  start_time: 2014-03-18 16:51:59
+  end_time: 2014-03-18 16:51:59
+  schedule_id: 1
 
 two:
-  t1: 1
-  t2: 1
-  t3: 1
-  t4: 1
-  t5: 
-  t6: 1
-  t7: 1
-  t8: 1
-  t9: 1
-  t10: 1
+  start_time: 2014-03-18 16:51:59
+  end_time: 2014-03-18 16:51:59
+  schedule_id: 1
