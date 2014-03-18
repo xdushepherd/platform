@@ -38,13 +38,14 @@
       <th class="text-center">所属单位</th>
       <th class="text-center">购置价格</th>
       <th class="text-center">安置地点</th>
+      <th class="text-center">日程管理</th>
     </tr>
   </thead>
 
   <tbody>
     <% @instruments.each do |instrument| %>
       <tr class="instrument-status-<%=instrument.status%>">
-        <td class="text-center"><%= instrument.id %></td>
+        <td class="text-center"><%= instrument.id.to_s.rjust(5, '0') %></td>
         <td class="text-center"><%= link_to instrument.name,admin_instrument_path(instrument),
                                                                   class: "text-primary" %></td>
         <td class="text-center"><%= instrument.producted_factory %></td>
@@ -54,6 +55,7 @@
         <td class="text-center"><%= instrument.unit_id %></td>
         <td class="text-center"><%= instrument.purchased_price %></td>        
         <td class="text-center"><%= instrument.address %></td>
+        <td class="text-center"><%= link_to "日程表",schedule_admin_instrument_path(instrument),class: 'btn btn-default' %></td>
       </tr>
     <% end %>
   </tbody>

@@ -2,7 +2,11 @@ Platform::Application.routes.draw do
 
 
   namespace :admin do
-    resources :instruments
+    resources :instruments do
+       member do
+         match 'schedule',via: [:get]
+       end
+    end
     resources :reservations
     resources :users
     resources :experts

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318085159) do
+ActiveRecord::Schema.define(version: 20140318092529) do
 
   create_table "instruments", force: true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140318085159) do
     t.integer  "markable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "markable_type"
   end
 
   create_table "timetables", force: true do |t|

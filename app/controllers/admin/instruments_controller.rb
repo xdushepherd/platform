@@ -1,5 +1,5 @@
 class Admin::InstrumentsController < Admin::ApplicationController
-  before_action :set_admin_instrument, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_instrument, only: [:show, :edit, :update, :destroy,:schedule]
 
   # GET /admin/instruments
   # GET /admin/instruments.json
@@ -59,6 +59,10 @@ class Admin::InstrumentsController < Admin::ApplicationController
       format.html { redirect_to instruments_url }
       format.json { head :no_content }
     end
+  end
+
+  def schedule
+    @schedule = @instrument.schedules << @instrument.schedules.build(date: Time.now)
   end
 
   private
