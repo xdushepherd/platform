@@ -62,7 +62,7 @@ class Admin::InstrumentsController < Admin::ApplicationController
   end
 
   def schedule
-    @schedule = @instrument.schedules << @instrument.schedules.build(date: Time.now)
+    
   end
 
   private

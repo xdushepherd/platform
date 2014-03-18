@@ -1,1 +1,31 @@
-afdafafdf
+<h3>仪器占用时间表</h3>
+<table class="table table-bordered instrument-list">
+  <thead>
+    <tr>
+      <th class="text-center">仪器编号</th>
+      <th class="text-center">仪器名称</th>
+      <th class="text-center">日期</th>
+      <th class="text-center">状态</th>
+      <th class="text-center">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instrument.schedule.timetables.each do |timetable| %>
+       <tr >
+        <td class="text-center"><%= timetable.schedule.instrument.id.to_s.rjust(5, '0') %></td>
+        <td class="text-center"><%= link_to timetable.schedule.instrument.name,
+            admin_instrument_path(timetable.schedule.instrument),class: "text-primary" %></td>
+        <td class="text-center"><%=timetable.schedule.date.strftime("%Y-%m-%d")  %></td>
+        <td class="text-center">
+        	<%= timetable.schedule.start_time %>--<%timetable.schedule.endtime%>
+        </td>
+        <td>
+            <%= link_to "修改","#",class: 'btn btn-default'  %>
+            <%= link_to "删除","#",class: 'btn btn-default'  %>
+        </td>
+       </tr>
+      <% end %> 
+    <% end %>
+  </tbody>
+</table>
