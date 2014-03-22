@@ -1,6 +1,6 @@
 Platform::Application.routes.draw do
 
-
+  mount FullcalendarEngine::Engine => "/fullcalendar_engine"
   namespace :admin do
     resources :instruments do
        member do

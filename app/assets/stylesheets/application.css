@@ -12,7 +12,8 @@
  *= require bootstrap-datetimepicker.min
  *= require bootstrap
  *= require_tree .
- */
+  *= require fullcalendar_engine/application
+*/
 
  .padding-top {
  	margin-top: 60px;
